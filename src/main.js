@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function router() {
-  const hash = window.location;
+  const hash = window.location.hash;
 
   if (hash === "") {
     // ホーム（商品一覧）を表示
