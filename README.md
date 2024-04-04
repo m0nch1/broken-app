@@ -18,8 +18,18 @@ npx tsc --init
 
 - tsconfig.json が生成されるので、以下を有効にしてください
 
-  - allowImportingTsExtensions: true
-  - noEmit: true
+```:ts
+{
+  "compilerOptions": {
+    ~~
+    "allowImportingTsExtensions": true /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */,
+    "noEmit": true /* Disable emitting files from a compilation. */
+    ~~
+  },
+  "include": ["src"]
+}
+
+```
 
 - ref: https://www.typescriptlang.org/ja/tsconfig
 
@@ -32,5 +42,8 @@ npx tsc --init
 
 - 以下を直してみましょう！
   - 商品一覧の情報が表示されていない...
+    - Tips
+      - API の型を response の json から生成してみましょう
+      - ref: https://app.quicktype.io/
   - 商品詳細ページに遷移できない...
   - 商品詳細ページの価格が NaN になってる...
