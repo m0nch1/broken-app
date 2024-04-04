@@ -1,13 +1,21 @@
 import "./style.css";
-import { setupCounter } from "./counter.js";
+import { fetchProducts, fetchProductDetails } from "./products";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <h1>👻</h1>
-    <div class="card">
-      <button id="counter" type="button">count is 0</button>
-    </div>
-  </div>
-`;
+document.addEventListener("DOMContentLoaded", () => {
+  // URLハッシュに応じて処理を分岐
+  window.addEventListener("hashchange", router);
+  router(); // 初回アクセス時もルーティングを行う
+});
 
-setupCounter(0);
+function router() {
+  const hash = window.location;
+
+  if (hash === "") {
+    // ホーム（商品一覧）を表示
+    fetchProducts();
+  } else if (hash.startsWith("#product/")) {
+    // 商品詳細を表示
+    const id = hash.replace("#product/", "");
+    fetchProductDetail(id);
+  }
+}
