@@ -7,7 +7,6 @@ TypeScript を導入してエラーを直していきましょう。
 
 - npm install してパッケージをダウンロードします
 - npm run dev して起動します
-- 何も表示されていないことを確認する
 
 ## TypeScript を入れる
 
